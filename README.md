@@ -20,8 +20,6 @@ QuickVidAI is a web-based application that allows users to generate videos with 
 ## Screenshot
 
 ![QuickVidAI Screenshot](https://raw.githubusercontent.com/ashith-17/QuickVidAI/refs/heads/main/Screenshot%202025-08-25%20210344.png)  
-*Replace the path with your screenshot file.*
-
 ---
 
 ## Technologies Used
