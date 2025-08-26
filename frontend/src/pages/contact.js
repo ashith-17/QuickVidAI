@@ -1,46 +1,65 @@
 import React, { useState } from "react";
 
-export default function Contact() {
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [message, setMessage] = useState("");
+const Contact = () => {
+  const [form, setForm] = useState({ name: "", email: "", message: "" });
+
+  const handleChange = (e) => {
+    setForm({ ...form, [e.target.name]: e.target.value });
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    alert("Contact form submitted (placeholder). Backend not connected yet.");
+    console.log("Contact Form Submitted:", form);
+    alert("Message sent!");
+    setForm({ name: "", email: "", message: "" });
   };
 
   return (
-    <div className="max-w-md mx-auto bg-gray-800 p-6 rounded-lg shadow-lg">
-      <h2 className="text-2xl font-semibold mb-4">Contact Us</h2>
-      <form onSubmit={handleSubmit} className="space-y-4">
+    <div className="flex flex-col items-center space-y-6">
+      <h2 className="text-3xl font-bold text-blue-400">Contact Us</h2>
+      <p className="text-gray-300 max-w-2xl text-center">
+        Have questions or feedback? Fill out the form below and we’ll get back to you!
+      </p>
+      <form
+        onSubmit={handleSubmit}
+        className="flex flex-col space-y-4 w-full max-w-md bg-gray-800 p-6 rounded-xl shadow-lg"
+      >
         <input
           type="text"
-          placeholder="Name"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-          className="w-full p-2 rounded bg-gray-700 border border-gray-600"
+          name="name"
+          placeholder="Your Name"
+          value={form.name}
+          onChange={handleChange}
+          className="p-3 rounded-lg bg-gray-700 text-white border border-gray-600 focus:outline-none focus:border-blue-400"
+          required
         />
         <input
           type="email"
-          placeholder="Email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          className="w-full p-2 rounded bg-gray-700 border border-gray-600"
+          name="email"
+          placeholder="Your Email"
+          value={form.email}
+          onChange={handleChange}
+          className="p-3 rounded-lg bg-gray-700 text-white border border-gray-600 focus:outline-none focus:border-blue-400"
+          required
         />
         <textarea
-          placeholder="Message"
-          value={message}
-          onChange={(e) => setMessage(e.target.value)}
-          className="w-full p-2 rounded bg-gray-700 border border-gray-600"
-        ></textarea>
+          name="message"
+          placeholder="Your Message"
+          value={form.message}
+          onChange={handleChange}
+          className="p-3 rounded-lg bg-gray-700 text-white border border-gray-600 focus:outline-none focus:border-blue-400"
+          rows={4}
+          required
+        />
         <button
           type="submit"
-          className="w-full bg-blue-600 hover:bg-blue-700 py-2 rounded font-semibold"
+          className="px-6 py-3 bg-blue-500 rounded-lg hover:bg-blue-600 transition"
         >
-          Submit
+          Send Message
         </button>
       </form>
     </div>
   );
-}
+};
+
+export default Contact;

@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import Home from "./pages/home";
 import Generate from "./pages/generate";
 import Contact from "./pages/contact";
+import Login from "./pages/login";
 import Footer from "./pages/footer";
 
 function App() {
@@ -14,9 +15,10 @@ function App() {
           <div className="max-w-6xl mx-auto flex justify-between items-center py-4 px-6">
             <h1 className="text-2xl font-bold text-blue-400">QuickVidAI</h1>
             <div className="space-x-6">
-              <Link to="/" className="hover:text-blue-400">Home</Link>
-              <Link to="/generate" className="hover:text-blue-400">Generate</Link>
-              <Link to="/contact" className="hover:text-blue-400">Contact</Link>
+              <Link to="/" className="hover:text-blue-400 transition-colors">Home</Link>
+              <Link to="/generate" className="hover:text-blue-400 transition-colors">Generate</Link>
+              <Link to="/contact" className="hover:text-blue-400 transition-colors">Contact</Link>
+              <Link to="/login" className="hover:text-blue-400 transition-colors">Login</Link>
             </div>
           </div>
         </nav>
@@ -27,6 +29,7 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/generate" element={<Generate />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/login" element={<Login />} />
           </Routes>
         </main>
 

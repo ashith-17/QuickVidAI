@@ -1,9 +1,16 @@
 import React from "react";
 
-export default function Footer() {
+const Footer = () => {
   return (
-    <footer className="w-full bg-gray-800 border-t border-gray-700 mt-6 py-4 text-center text-gray-400">
-      &copy; {new Date().getFullYear()} QuickVidAI. All rights reserved.
+    <footer className="bg-gray-800 border-t border-gray-700 py-6 mt-12">
+      <div className="max-w-6xl mx-auto text-center text-gray-400">
+        <p>© {new Date().getFullYear()} QuickVidAI. All rights reserved.</p>
+        <p className="mt-2">
+          Built with ❤️ using React & Tailwind CSS
+        </p>
+      </div>
     </footer>
   );
-}
+};
+
+export default Footer;
